@@ -1,2 +1,2 @@
-# SQL_Code
-Collection of SQL From Different Courses I took 
+### SQL Code
+This is a collection of SQL Code that I wrote From the Different Online Courses I took 
