@@ -1,7 +1,7 @@
 /*
-Created by: T.Gill
+Created by: Trudy Gill
 Created date: 10/06/2023
-Description: This file contains the sql code I wrote for the Single Table Analysis Assignments from the Maven Analytics Learn SQL Udemy Course. The database explored is the Maven Movies Database.
+Description: This file contains sql code I wrote for the Single Table Analysis Assignments from the Maven Analytics Learn SQL Udemy Course. The database explored is the Maven Movies Database.
 */
 
 -- 1. SELECT & FROM | Create a list which includes the first name, last name and email of customers 
@@ -12,7 +12,7 @@ FROM customer;
 SELECT DISTINCT rental_duration
 FROM film; 
 
--- 3.  FILTERING WITH WHERE | Show all payments from the first 100 customers (based on customer ID)
+-- 3. FILTERING WITH WHERE | Show all payments from the first 100 customers (based on customer ID)
 SELECT customer_id, rental_id, amount, payment_date
 FROM payment
 WHERE customer_id BETWEEN 1 AND 100; 
@@ -45,9 +45,8 @@ FROM film
 WHERE special_features LIKE '%Behind the Scenes%'; 
 
 -- 7. GROUP BY | Pull a count of titles sliced by rental duration
-SELECT 
-	rental_duration,
-    COUNT(film_id) AS films_with_this_rental_duration
+SELECT rental_duration,
+	COUNT(film_id) AS films_with_this_rental_duration
 FROM film
 GROUP BY rental_duration; 
 
@@ -62,11 +61,9 @@ FROM film
 GROUP BY replacement_cost;
 
 -- 9. HAVING  | Pull a list of customer_ids with less than 15 rentals all-time
-SELECT 
-    customer_id, 
+SELECT customer_id, 
     COUNT(rental_id) AS total_rentals
-FROM
-    rental
+FROM rental
 GROUP BY customer_id
 HAVING COUNT(rental_id) < 15;
 
