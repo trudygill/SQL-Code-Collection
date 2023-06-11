@@ -1,8 +1,7 @@
 /*
 Created by: T.Gill
 Created date: 10/06/2023
-Description: This file contains the sql code I wrote for the Single Table Analysis Assignments from the Maven Analytics Learn SQL Udemy Course. 
-				 The database explored is the Maven Movies Database.
+Description: This file contains the sql code I wrote for the Single Table Analysis Assignments from the Maven Analytics Learn SQL Udemy Course. The database explored is the Maven Movies Database.
 */
 
 -- 1. SELECT & FROM | Create a list which includes the first name, last name and email of customers 
