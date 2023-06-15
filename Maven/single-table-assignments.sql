@@ -1,10 +1,11 @@
 /*
 Created by: Trudy Gill
 Created date: 10/06/2023
-Description: This file contains sql code I wrote for the Single Table Analysis Assignments from the Maven Analytics Learn SQL Udemy Course. The database explored is the Maven Movies Database.
+Description: This file contains SQL code I wrote for the Single Table Analysis Assignments from the Maven Analytics Learn SQL Udemy Course.
+The database explored is the Maven Movies Database.
 */
 
--- 1. SELECT & FROM | Create a list which includes the first name, last name and email of customers 
+-- 1. SELECT & FROM | Create a list that includes the first name, last name, and email of customers 
 SELECT first_name, last_name, email
 FROM customer; 
 
@@ -22,9 +23,9 @@ SELECT customer_id, rental_id, amount, payment_date
 FROM payment
 WHERE customer_id BETWEEN 1 AND 100
 	AND amount >= 5
-    AND payment_date > '2006-01-01'; 
+	AND payment_date > '2006-01-01'; 
     
--- 5a. WHERE & OR | Show all payments for the customerids (42, 53, 60 and 75) along with payments over $5 for any customer
+-- 5a. WHERE & OR | Show all payments for the customerids (42, 53, 60, and 75) along with payments over $5 for any customer
 SELECT customer_id, rental_id, amount, payment_date
 FROM payment
 WHERE amount >= 5
