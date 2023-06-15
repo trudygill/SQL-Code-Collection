@@ -1,7 +1,7 @@
 /*
 Created by: Trudy Gill
 Created date: 11/06/2023
-Description: This is my solution/attempt at the Maven Movies Mid Course Project from the MavenAnalytics Learn SQL Udemy Course.
+Description: This is my attempt at the Maven Movies Mid Course Project from the MavenAnalytics Learn SQL Udemy Course.
 */
 
 USE mavenmovies;
