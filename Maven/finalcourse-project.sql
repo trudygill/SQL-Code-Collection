@@ -13,16 +13,16 @@ of each property (street address, district, city, and country please).
 */ 
 SELECT
 	staff.first_name AS manager_first_name,
-    staff.last_name AS manager_last_name,
-    address.address,
-    address.district,
-    city.city,
-    country.country
-    FROM staff
-    LEFT JOIN store ON store.store_id = staff.store_id
-	LEFT JOIN address  ON address.address_id = store.address_id
-	LEFT JOIN city ON city.city_id = address.city_id
-	LEFT JOIN country ON country.country_id = city.country_id;
+	staff.last_name AS manager_last_name,
+  address.address,
+  address.district,
+  city.city,
+  country.country
+FROM staff
+LEFT JOIN store ON store.store_id = staff.store_id
+LEFT JOIN address  ON address.address_id = store.address_id
+LEFT JOIN city ON city.city_id = address.city_id
+LEFT JOIN country ON country.country_id = city.country_id;
 	
 /*
 2.	I would like to get a better understanding of all of the inventory that would come along with the business. 
@@ -31,11 +31,11 @@ the inventory_id, the name of the film, the film’s rating, its rental rate and
 */
 SELECT
 	inventory.store_id,
-    inventory.inventory_id,
-    film.title,
-    film.rating,
-    film.rental_rate,
-    film.replacement_cost 
+	inventory.inventory_id,
+	film.title,
+	film.rating,
+	film.rental_rate,
+	film.replacement_cost 
 FROM inventory
 LEFT JOIN film	ON inventory.film_id = film.film_id;
 
@@ -45,13 +45,13 @@ of your inventory. We would like to know how many inventory items you have with 
 */
 SELECT 
 	inventory.store_id,
-    film.rating,
+	film.rating,
 	COUNT(inventory_id) AS inventory_items
 FROM inventory
 LEFT JOIN film ON inventory.film_id = film.film_id
 GROUP BY 
 	inventory.store_id,
-    film.rating;
+	film.rating;
 
 /* 
 4. Similarly, we want to understand how diversified the inventory is in terms of replacement cost. We want to 
@@ -61,17 +61,17 @@ sliced by store and film category.
 */ 
 SELECT
 	inventory.store_id, 
-    category.name AS category,
-    COUNT(inventory.inventory_id) AS number_of_films,
-    AVG(replacement_cost) AS average_replacement_cost,
-    SUM(replacement_cost) AS total_replacement_cost    
+	category.name AS category,
+	COUNT(inventory.inventory_id) AS number_of_films,
+	AVG(replacement_cost) AS average_replacement_cost,
+	SUM(replacement_cost) AS total_replacement_cost    
 FROM inventory
 LEFT JOIN film ON inventory.film_id = film.film_id
 LEFT JOIN film_category ON film.film_id = film_category.film_id
 LEFT JOIN category ON category.category_id = film_category.category_id
 GROUP BY 
 	inventory.store_id,
-    category.name;
+	category.name;
 
 /*
 5.	We want to make sure you folks have a good handle on who your customers are. Please provide a list 
@@ -80,13 +80,13 @@ and their full addresses – street address, city, and country.
 */
 SELECT
 	first_name,
-    last_name,
-    store_id,
-    active,
-    address.address,
-    city.city,
-    country.country
-    FROM customer
+	last_name,
+	store_id,
+	active,
+	address.address,
+	city.city,
+	country.country
+	FROM customer
 	LEFT JOIN address ON address.address_id = customer.address_id
 	LEFT JOIN city ON city.city_id = address.city_id
 	LEFT JOIN country ON country.country_id = city.country_id;
@@ -99,14 +99,14 @@ see this ordered on total lifetime value, with the most valuable customers at th
 */
 SELECT
 	first_name,
-    last_name,
-    COUNT(rental.rental_id) AS total_rentals, 
-    SUM(payment.amount) AS total_payment_amount
-    FROM customer
+	last_name,
+	COUNT(rental.rental_id) AS total_rentals, 
+	SUM(payment.amount) AS total_payment_amount
+	FROM customer
 	LEFT JOIN rental ON rental.customer_id = customer.customer_id
 	LEFT JOIN payment ON rental.rental_id = payment.rental_id
-    GROUP BY first_name, last_name
-    ORDER BY total_payment_amount DESC;
+	GROUP BY first_name, last_name
+	ORDER BY total_payment_amount DESC;
     
 /*
 7. My partner and I would like to get to know your board of advisors and any current investors.
@@ -116,16 +116,16 @@ it would be good to include which company they work with.
 */
 SELECT 
 	'investor' AS type,
-    first_name,
-    last_name,
-    company_name
+	first_name,
+	last_name,
+	company_name
 FROM investor
 UNION
 SELECT 
 	'advisor' AS type,
-    first_name,
-    last_name,
-    NULL
+	first_name,
+	last_name,
+	NULL
 FROM advisor;
 /*
 8. We're interested in how well you have covered the most-awarded actors. 
