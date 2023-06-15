@@ -30,9 +30,9 @@ SELECT customer_id, rental_id, amount, payment_date
 FROM payment
 WHERE amount >= 5
 	OR customer_id = 42
-    OR customer_id = 53
-    OR customer_id = 60
-    OR customer_id = 73;
+	OR customer_id = 53
+	OR customer_id = 60
+	OR customer_id = 73;
     
 -- 5b. WHERE & IN | Show all payments for customerids (41, 53, 60 and 75) along with payments over $5 for any customer
 SELECT customer_id, rental_id, amount, payment_date
@@ -54,16 +54,17 @@ GROUP BY rental_duration;
 -- 8. AGGREGRATE FUNCTIONS | Pull a count of films, along with the average, min and max rental rate, grouped by replacement cost
 SELECT 
 	replacement_cost, 
-    COUNT(film_id) AS number_of_films,
-    MIN(rental_rate) AS cheapest_rental,
-    MAX(rental_rate) AS most_expensive_rental,
-    AVG(rental_rate) AS average_rental
+	COUNT(film_id) AS number_of_films,
+	MIN(rental_rate) AS cheapest_rental,
+	MAX(rental_rate) AS most_expensive_rental,
+	AVG(rental_rate) AS average_rental
 FROM film
 GROUP BY replacement_cost;
 
 -- 9. HAVING  | Pull a list of customer_ids with less than 15 rentals all-time
-SELECT customer_id, 
-    COUNT(rental_id) AS total_rentals
+SELECT
+	customer_id, 
+	COUNT(rental_id) AS total_rentals
 FROM rental
 GROUP BY customer_id
 HAVING COUNT(rental_id) < 15;
@@ -71,8 +72,8 @@ HAVING COUNT(rental_id) < 15;
 -- 10. ORDER BY | Pull a list of all film titles along with their lengths and rental rates, sorted by longest to shortest 
 SELECT
 	title,
-    length,
-    rental_rate
+	length,
+	rental_rate
 FROM film
 ORDER BY length DESC; 
     
@@ -90,7 +91,7 @@ FROM customer;
 -- 12. CASE & COUNT | Create a table to count the number of customers broken down by store_id (in rows), and active status (in columns)
 SELECT
 	store_id,
-    COUNT(CASE WHEN active = 1 THEN customer_id ELSE NULL END) AS 'active',
-    COUNT(CASE WHEN active = 0 THEN customer_id ELSE NULL END) AS 'inactive'
+	COUNT(CASE WHEN active = 1 THEN customer_id ELSE NULL END) AS 'active',
+	COUNT(CASE WHEN active = 0 THEN customer_id ELSE NULL END) AS 'inactive'
 FROM customer
 GROUP BY store_id;
