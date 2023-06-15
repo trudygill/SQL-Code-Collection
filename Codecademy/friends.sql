@@ -1,4 +1,4 @@
--- created the initial table 
+-- creating the initial table 
 CREATE TABLE friends (
   id INTEGER,
   name TEXT,
@@ -19,7 +19,7 @@ VALUES (2, 'Trish Michelle', '1998-01-14');
 INSERT INTO friends (id, name, birthday)
 VALUES (3, 'Simon Plenty', '2001-12-15');
 
--- confirming again that the records were addded 
+-- confirming that the records were added 
 SELECT *
 FROM friends; 
 
@@ -32,11 +32,11 @@ WHERE id = 2;
 ALTER TABLE friends
 ADD email TEXT;
 
--- confirming that the column was adde 
+-- confirming that the column was added 
 SELECT *
 FROM friends; 
 
--- inserting data into the previously added column 
+-- inserting data into the previously added column for each record
 UPDATE friends
 SET email = 'storm@codecademy.com'
 WHERE id = 1;
