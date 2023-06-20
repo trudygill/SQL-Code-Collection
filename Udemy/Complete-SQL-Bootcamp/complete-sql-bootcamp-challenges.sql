@@ -1,7 +1,7 @@
 /*
 Created by: T. Gill
 Created date: 20/06/2023
-Description: These are my answers to the Complete SQL Bootcamp Course Challenges by Jose Portilla on Udemy
+Description: These are my answers to the Complete SQL Bootcamp Course Challenges by Jose Portilla on Udemy using the dvdrental database
 */
 
 /* SELECT: We want to send out a promotional email to our existing customers. Can you show the first name, last name and email for each customer? */
