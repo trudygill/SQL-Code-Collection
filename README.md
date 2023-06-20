@@ -1,2 +1,4 @@
 ### SQL Code
-This is a collection of SQL Code that I wrote from the different online courses I took 
+Hello! 👋
+Thanks for checking out my repo. 
+This repo contains all my answers/code to assignments and challenge questtions from the various online courses that I took. 
