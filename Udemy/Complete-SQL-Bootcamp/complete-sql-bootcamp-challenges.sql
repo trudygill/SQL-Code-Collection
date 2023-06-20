@@ -127,3 +127,35 @@ FROM customer
 WHERE first_name LIKE 'E%' AND address_id <500
 ORDER BY customer_id DESC
 LIMIT 1;
+
+/* JOIN CHALLENGES */
+-- 1. California sales tax laws have changed and we need to alert our customers to this through email. What are the emails of the customers who live in California?
+SELECT email, district
+FROM customer
+INNER JOIN address
+	ON customer.address_id = address.address_id
+WHERE district = 'California';
+
+-- 2. A customer walks in and is a huge fan of the actor "Nick Wahlberg" and wants to know which movies he is in. Get a list of all the movies "Nick Wahlberg" has been in.
+SELECT title, first_name, last_name
+FROM film
+INNER JOIN film_actor
+	ON film.film_id = film_actor.film_id
+INNER JOIN actor
+	ON actor.actor_id = film_actor.actor_id
+WHERE first_name = 'Nick' AND last_name = 'Wahlberg';
+
+/* TIMESTAMPS AND EXTRACT*/
+-- 1. During which months did payments occur? Format your answer to return the full month name.
+SELECT DISTINCT(TO_CHAR( payment_date, 'MONTH')) AS payment_month
+FROM payment 
+
+-- 2. How many payments occurred on a Monday?
+SELECT COUNT(*) 
+FROM payment
+WHERE EXTRACT(DOW FROM payment_date) = 1;
+
+
+
+
+
