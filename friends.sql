@@ -1,3 +1,7 @@
+/* 
+Description: Learn SQL Codecademy Course. The task was to create a friends table and practice inserting, updating and deleting records from the table.
+*/
+
 -- creating the initial table 
 CREATE TABLE friends (
   id INTEGER,
